@@ -7,5 +7,5 @@
 The main idea is to keep everything in one file and try to make it look nice
 
 <p align="center">
-<image src="img/view.png">
+<image src="img/view_1.png">
 </p>
