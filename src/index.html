@@ -5,40 +5,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenIPC sandbox-fpv info</title>
+    <style>
+        h2,
+        .h2 {
+            font-weight: 700;
+            font-size: 2rem;
+            color: #4c60d8;
+        }
+
+        a {
+            color: #0d6efd;
+            text-decoration: underline;
+        }
+
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        /* .alert {
+             --bs-alert-bg: transparent;
+            --bs-alert-padding-x: 1rem;
+            --bs-alert-padding-y: 1rem;
+            --bs-alert-margin-bottom: 1rem;
+            --bs-alert-color: inherit;
+            --bs-alert-border-color: transparent;
+            --bs-alert-border: 1px solid var(--bs-alert-border-color);
+            --bs-alert-border-radius: 0.375rem; 
+            position: relative;
+            padding: 3px;
+            margin-bottom: 5px;
+            color: #084298;
+            background-color: #cfe2ff;
+            border: 2px;
+            border-radius: 3px;
+        } */
+    </style>
+
 </head>
 
 <body>
     <main>
         <header>
-            
-            <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg"
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="50px" height="50px"
+                style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
-                <rect width="110" height="110" fill="url(#pattern0)" />
-                <defs>
-                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_106_2" transform="scale(0.00909091)" />
-                    </pattern>
-                    <image id="image0_106_2" width="110" height="110"
-                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABuCAYAAADGWyb7AAAACXBIWXMAAC4jAAAuIwF4pT92AAAFqklEQVR4nO1d7ZHbNhBdZPw/10HsCnypwCrhOsi5AtsVROlAriBKB0oFliuwrgO7g3MF8KxnOYMQHwRJQNyn7JvZGQkkAAqPC+wuPuS892TAwy/GGSaMOFAYcaAw4kBhxIHCiAOFEQcKIw4URhwojDhQGHGgMOJAYcSBwogDhREHCiMOFEYcKIw4UBhxoDDiQGHEgcKIA4URBwojDhQvbuFHOOfuieiBiHZExJ9/Hd3yjYguRHQmopP3/mtUCBigVzI75x6JaE9Ev0UXy/jM+bz35+JdigFJnHOONeu4gLAxmMBHRA2EG+Occ6xhnxqQxnjDXahoLhRgNM45d0dEByL6I7rYBh+99++v/buWAoI4IY3Ho9fRxTy4G7ybmecf7z2E9kF0ld77Z7EKS3giordE9Mp7zy/kznt/z5+J6Hci+iDWZQk4xgprHIKI9jB5/CUUNiwean8DEXF3+Jwo55i6X6vAPGhAHhM1NDZryF3q3pKIrxe+BKfS/RoFzh0QZ3twpBePR8G4ydhJdwwDVD/uZSvfiwlEI43QIyf/Z0BYldw9spZFF9rXs5MuVD3UEyfhrZ9jWs9GlbHzxHXJZ9VQ3VVKKOrvIOkz+2fRjevrGazVYVbhuxgsU77jZlCrcc65w4g0xhvnHAeXW9YzWJfhVBB//qI6hqnUVzsmHORQ3qfyLqzvlCg/lH0q39aiSuOCt78USOZurKX5PtUd/tlay5tAkabdj6IiKWHCOP4Y5V9Z92OirrFclkRpeokK40Qsx1NiyUGIJ4lJZh1v51y4fCHEEGnJalcQkZl6hsdSOVeDAk2reduLMUkpY0pbJwPSiRhmSrpo/ex2SyVekbRDomGqo/ZiyJwTedaWOUWeF82L8t80cZWWY9F6nNHAOcmSJ+XXPN9mFmeUcCXSarqj4hu9UNPGckiVHdSxT+Sp1t6bIa6V5SiToam8S2SXqiOoS6XFGSV0JG2XmXkeN8DLVP5RWTWGSK2cU3UkXriaZy++cHDEtbAcg7LY5E/lXyM1L4sqizNK6EDaKstxYXlzpTieBnWrsTijhIaErbYcU9LIKBnLLOtQg8UZJTQkbbXlmJJOxM1eLLS1xdklyFy5DpJDS91ntXtAguE1z54Nz61Gis2Gmtf8rdy6q9QyzkUJHchr6gdtbJxsNoMRPUsqsQN5zfwg8QdT+ddIjRtS64fehjswIq+JH9TYAZ/sqjVGT6KEzuQ1GR8aO+FF57u1HwpJXNAYq/2gyjKmJOtDzvBDi895U8T5BhZnz2kdhDm5KOHK5K0eOxZamSVNU2M5lqR48UrkrbY4xeKr8e+OpTFNm+VYEi2Lhe6lUUvbfidXF8v+ggfp6gYSLqJBp9KunMSq6RSe1GzJKrF6Zc3bbFzRajmWpHhxIwKbzyiURPvakpyo2zsgu0z/ii78F9fsqt567/dR6tbIMapA83IWZzNtC+pK7R9QsX4yJ9kLSsgbW5xdxpnE+KrCciyJ+q3EgcX53GNvXFDPsEfuK8JmfqSThah3Y7Y8FKA3bPM+KCBPiJXdPS3KubvGoQA9gHjsIY95n5xzlzWb+YNtVWeUkxZCQBEXNDZJeGzRCQnBSQ6v5dxLPPJKJqcy1yAXEnuWKaLsDMKojFx4C+oQNqSDRi8VQejj0P0NFqiMYcNh26W95YR02CjSKehTxPE6zXciTFh0QwVgzvSCcgfk7JOfxHQAxyT1na6QAeKxhxzDPExssp+Db7IvPDvPpxFw7oBoBY9Z/0YX5+OjxCShSKMb+MOIncwizDkZ/bvMBuyR//HjJkJe4oPtRmecDDMLAzmDtQn77x4hLFYJCvs3K1AYcaAw4kBhxIHCiAOFEQcKIw4URhwojDhQGHGgMOJAYcSBwogDhREHCiMOFEYcKIw4UBhxoDDiQGHEgcKIA4URBwojDhRGHCKI6AdPsYsqpKc84QAAAABJRU5ErkJggg==" />
-                </defs>
-            </svg>
-            <h2>Everything you need is pinned here.</h2>
-            <p>We strongly suggest you to install a native <a href="https://telegram.org/">Telegram Messenger</a> for your platform and use our Telegram channels.</p>
+                <g>
+                    <path style="opacity:0.844" fill="#000000"
+                        d="M 48.5,24.5 C 52.5138,24.3345 56.5138,24.5012 60.5,25C 67.6113,26.988 68.7779,30.488 64,35.5C 57.6667,28.8333 51.3333,28.8333 45,35.5C 43.1217,33.9571 41.6217,32.1238 40.5,30C 43.0703,27.9131 45.737,26.0798 48.5,24.5 Z" />
+                </g>
+                <g>
+                    <path style="opacity:0.837" fill="#000000"
+                        d="M 40.5,36.5 C 42.8089,37.3877 44.4756,39.0544 45.5,41.5C 40.8333,45.8333 36.1667,50.1667 31.5,54.5C 35.8257,58.6569 40.3257,62.6569 45,66.5C 44.618,68.7711 43.4513,70.7711 41.5,72.5C 34.3516,66.5194 27.3516,60.3527 20.5,54C 27.656,48.6741 34.3227,42.8408 40.5,36.5 Z" />
+                </g>
+                <g>
+                    <path style="opacity:0.837" fill="#000000"
+                        d="M 66.5,36.5 C 74.0749,41.735 81.0749,47.735 87.5,54.5C 81.1368,61.0296 74.3034,67.0296 67,72.5C 64.8848,70.9375 63.8848,68.9375 64,66.5C 68.5951,62.4496 73.0951,58.2829 77.5,54C 73,50.1667 68.5,46.3333 64,42.5C 63.3333,41.5 63.3333,40.5 64,39.5C 65.045,38.6266 65.8783,37.6266 66.5,36.5 Z" />
+                </g>
+                <g>
+                    <path style="opacity:0.922" fill="#000000"
+                        d="M 50.5,43.5 C 61.3181,42.8169 66.1514,47.8169 65,58.5C 60.2248,66.1196 54.0581,67.4529 46.5,62.5C 42.69,57.3259 42.5233,51.9925 46,46.5C 47.6516,45.6006 49.1516,44.6006 50.5,43.5 Z" />
+                </g>
+                <g>
+                    <path style="opacity:0.823" fill="#000000"
+                        d="M 44.5,73.5 C 47.5277,75.6805 50.861,77.3472 54.5,78.5C 57.9518,77.6083 60.9518,75.9416 63.5,73.5C 67.9106,76.0707 68.2439,78.9041 64.5,82C 56.3544,86.019 48.8544,85.1857 42,79.5C 41.3333,78.5 41.3333,77.5 42,76.5C 43.045,75.6266 43.8783,74.6266 44.5,73.5 Z" />
+                </g>
+            </svg> -->
+            <h2>Everything you need is pinned here</h2>
+            <p>We strongly suggest you to install a native <a href="https://telegram.org/">Telegram Messenger</a> for
+                your platform and use our Telegram channels.</p>
         </header>
 
         <h3>Please use the translator, there is a lot of interesting stuff on FPV here:</h3>
 
-        FPV Wiki: https://github.com/OpenIPC/wiki/blob/master/ru/fpv.md
-
-        FPV Repo: https://github.com/openipc/sandbox-fpv
-
-        https://github.com/OpenIPC/silicon_research
-
-        And our general resources:
-
-        https://OpenIPC.org
-
-        https://github.com/OpenIPC
+        <dl>
+            <dt><a href="https://github.com/OpenIPC/wiki/blob/master/ru/fpv.md">FPV Wiki</a>
+            </dt>
+            <dd>
+                Repository Description
+            </dd>
+            <dt><a style="color:#0d6efd; text-decoration: underline;" href="https://github.com/openipc/sandbox-fpv">FPV
+                    Repo</a>
+            </dt>
+            <dd>
+                Repository Description
+            </dd>
+            <dt><a style="color:#0d6efd; text-decoration: underline;"
+                    href="https://github.com/OpenIPC/silicon_research">Silicon Research Repo</a>
+            </dt>
+            <dd>
+                Repository Description
+            </dd>
+        </dl>
+        <h3>And our general resources:</h3>
+        <dl>
+            <dt><a style="color:#0d6efd; text-decoration: underline;" href="https://OpenIPC.org">Website</a></dt>
+            <dd>OpenIPC is an open-source operating system targeting IP cameras with ARM and MIPS processors from several manufacturers in order to replace that closed, opaque, insecure, often abandoned and unsupported firmware pre-installed by a vendor.</dd>
+            <dt><a style="color:#0d6efd; text-decoration: underline;" href="https://github.com/OpenIPC">GitHub</a></dt>
+            <dd>Alternative open firmware for your IP camera</dd>
+        </dl>
     </main>
 </body>
 
