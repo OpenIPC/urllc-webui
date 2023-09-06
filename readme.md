@@ -5,7 +5,7 @@
 ## OpenIPC SandBox FPV info 🏖️
 
 The main idea is to keep everything in <b>one file</b> and try to make it look nice. 
-To add a new item to one of the lists, <b>use the template below</b>
+To add a new item to one of the lists, <b>use the template below</b> to add a new items with description!
 
 ```html
 <dt><a href="https://github.com/OpenIPC/wiki/blob/master/ru/fpv.md">FPV Wiki</a></dt>
