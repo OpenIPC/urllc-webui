@@ -14,6 +14,9 @@ To add a new item to one of the lists, <b>use the template below</b> to add a ne
     questions
 </dd>
 ```
+## Todo:
+- Change the css styles;
+- fix the flexbox containers;
 
 ### The information page looks like this
 
