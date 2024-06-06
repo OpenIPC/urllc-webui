@@ -22,6 +22,12 @@ The main idea is to keep everything in **_one file_** and try to make it look ni
 
 To add a new item to one of the lists, **_use the template below_** to add a new items with description !
 
+```html
+<dt><a href="https://github.com/OpenIPC/wiki/tree/master?tab=readme-ov-file#fpv">FPV section of Wiki</a></dt>
+<dd>
+    Wiki repository with instructions for using FPV and answers to frequently asked questions
+</dd>
+```
 
 ### Technical support and donations
 
