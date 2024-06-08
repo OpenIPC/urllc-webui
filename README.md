@@ -5,7 +5,7 @@
 The main idea is to keep everything in **_one file_** and try to make it look nice. 
 
 
-## Todo
+### Todo
 - Change the css styles
 - Fix the flexbox containers
 - Templates for various interfaces can be built on the basis of this page
